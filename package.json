@@ -1,0 +1,23 @@
+{
+  "name": "dream-cheeky-driver",
+  "version": "0.1.0",
+  "description": "Driver for Dream Cheeky Missile Launcher",
+  "main": "main.js",
+  "dependencies": {
+    "underscore": "^1.7.0",
+    "usb": "^0.3.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Driver",
+    "Dream",
+    "Cheeky",
+    "Missile",
+    "Launcher"
+  ],
+  "author": "Jack Kwong",
+  "license": "MIT"
+}
