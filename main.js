@@ -27,6 +27,7 @@
 
 
   var launcher = usb.findByIds(DEVICE.ID.VENDOR, DEVICE.ID.PRODUCT);
+  var controller = {};
 
   if (!launcher) {
     throw 'Launcher not found - make sure your Thunder Missile Launcher is plugged in to a USB port';
@@ -38,21 +39,22 @@
   if (launcherInterface.isKernelDriverActive()) {
     launcherInterface.detachKernelDriver();
   }
-
-  launcherInterface.claim();
+  // comment out the claim function since it's problematic in mac OS
+  // launcherInterface.claim();
 
   process.on('exit', function(){
     launcherInterface.release();
     console.log("Released usb interface");
-    launcher.close();
-    console.log("Close usb");
+    // launcher.close();
+    // console.log("Close usb");
   });
 
+  // duration in ms
   function signal(cmd, duration, callback) {
     launcher.controlTransfer(0x21, 0x09, 0x0, 0x0, new Buffer([0x02, cmd, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]),
         function (data) {
           if (__.isNumber(duration)) {
-            __.delay(__.isFunction(callback) ? callback : controller.stop, duration);
+            __.delay(__.isFunction(callback) ? callback : function(){ controller.stop() }, duration);
           }
         }
     );
@@ -64,7 +66,6 @@
     };
   }
 
-  var controller = {};
 
   controller.up = controller.u = function (duration, callback) {
     signal(DEVICE.CMD.UP, duration, callback);
@@ -130,5 +131,4 @@
     }
   };
 
-
-controller.down(0.3);
+module.exports = controller;
