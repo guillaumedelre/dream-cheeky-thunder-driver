@@ -14,4 +14,4 @@ Milestone
 ==============
 1. ~~Make the code able to control the missile launcher~~
 2. ~~Make it into a nodejs module (for use in another project XD)~~
-3. Make it an npm module
+3. ~~Make it an npm module~~
