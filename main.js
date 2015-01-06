@@ -2,36 +2,14 @@
   var __ = require('underscore'), usb = require('usb');
   var DCDriver = {};
 
-  var DEVICE = {
-    ID: {
-      VENDOR : 0x2123,
-      PRODUCT: 0x1010
-    },
+  DCDriver.DEVICE_CONSTANTS = require('./device_constants.js');
 
-    CMD: {
-      UP   : 0x02,
-      DOWN : 0x01,
-      LEFT : 0x04,
-      RIGHT: 0x08,
-      FIRE : 0x10,
-      STOP : 0x20,
-      RESET: 'l8000,d2000'
-    },
-
-    MISSILES: {
-      NUMBER         : 4,
-      RELOAD_DELAY_MS: 4500
-    }
-  };
-
-  DCDriver.DEVICE_CONSTANTS = DEVICE;
-  
   DCDriver.turnOnDebugMode = function(){ 
     usb.setDebugLevel(4);
   };
 
 
-  var launcher = usb.findByIds(DEVICE.ID.VENDOR, DEVICE.ID.PRODUCT);
+  var launcher = usb.findByIds(DCDriver.DEVICE_CONSTANTS.ID.VENDOR, DCDriver.DEVICE_CONSTANTS.ID.PRODUCT);
 
   if (!launcher) {
     throw 'Launcher not found - make sure your Thunder Missile Launcher is plugged in to a USB port';
@@ -72,40 +50,40 @@
 
 
   DCDriver.moveUp = function (duration, callback) {
-    signal(DEVICE.CMD.UP, duration, callback);
+    signal(DCDriver.DEVICE_CONSTANTS.CMD.UP, duration, callback);
   };
 
   DCDriver.moveDown = function (duration, callback) {
-    signal(DEVICE.CMD.DOWN, duration, callback);
+    signal(DCDriver.DEVICE_CONSTANTS.CMD.DOWN, duration, callback);
   };
 
   DCDriver.moveLeft = function (duration, callback) {
-    signal(DEVICE.CMD.LEFT, duration, callback);
+    signal(DCDriver.DEVICE_CONSTANTS.CMD.LEFT, duration, callback);
   };
 
   DCDriver.moveRight = function (duration, callback) {
-    signal(DEVICE.CMD.RIGHT, duration, callback);
+    signal(DCDriver.DEVICE_CONSTANTS.CMD.RIGHT, duration, callback);
   };
 
   DCDriver.stop = function (callback) {
     if (__.isFunction(callback) && callback !== DCDriver.stop) {
-      signal(DEVICE.CMD.STOP, 0, callback);
+      signal(DCDriver.DEVICE_CONSTANTS.CMD.STOP, 0, callback);
     } else {
-      signal(DEVICE.CMD.STOP);
+      signal(DCDriver.DEVICE_CONSTANTS.CMD.STOP);
     }
   };
 
   DCDriver.fire = function (number, callback) {
-    number = __.isNumber(number) && number >= 0 && number <= DEVICE.MISSILES.NUMBER ? number : 1;
+    number = __.isNumber(number) && number >= 0 && number <= DCDriver.DEVICE_CONSTANTS.MISSILES.NUMBER ? number : 1;
     if (number === 0) {
       DCDriver.stop(callback);
     } else {
-      signal(DEVICE.CMD.FIRE, DEVICE.MISSILES.RELOAD_DELAY_MS, trigger(DCDriver.fire, number - 1, callback));
+      signal(DCDriver.DEVICE_CONSTANTS.CMD.FIRE, DCDriver.DEVICE_CONSTANTS.MISSILES.RELOAD_DELAY_MS, trigger(DCDriver.fire, number - 1, callback));
     }
   };
 
   DCDriver.park = function (callback) {
-    DCDriver.execute(DEVICE.CMD.RESET, callback);
+    DCDriver.execute(DCDriver.DEVICE_CONSTANTS.CMD.RESET, callback);
   };
 
   DCDriver.execute = function (commands, callback) {
