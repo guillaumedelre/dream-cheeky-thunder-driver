@@ -2,8 +2,6 @@
   var __ = require('underscore'), usb = require('usb');
   var DCDriver = {};
 
-  usb.setDebugLevel(4);
-
   var DEVICE = {
     ID: {
       VENDOR : 0x2123,
@@ -27,7 +25,10 @@
   };
 
   DCDriver.DEVICE_CONSTANTS = DEVICE;
-  DCDriver.setDebugLevel = usb.setDebugLevel;
+  
+  DCDriver.turnOnDebugMode = function(){ 
+    usb.setDebugLevel(4);
+  };
 
 
   var launcher = usb.findByIds(DEVICE.ID.VENDOR, DEVICE.ID.PRODUCT);
@@ -70,19 +71,19 @@
   }
 
 
-  DCDriver.up = function (duration, callback) {
+  DCDriver.moveUp = function (duration, callback) {
     signal(DEVICE.CMD.UP, duration, callback);
   };
 
-  DCDriver.down = function (duration, callback) {
+  DCDriver.moveDown = function (duration, callback) {
     signal(DEVICE.CMD.DOWN, duration, callback);
   };
 
-  DCDriver.left = function (duration, callback) {
+  DCDriver.moveLeft = function (duration, callback) {
     signal(DEVICE.CMD.LEFT, duration, callback);
   };
 
-  DCDriver.right = function (duration, callback) {
+  DCDriver.moveRight = function (duration, callback) {
     signal(DEVICE.CMD.RIGHT, duration, callback);
   };
 
