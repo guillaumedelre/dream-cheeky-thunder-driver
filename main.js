@@ -1,5 +1,6 @@
   'use strict';
   var __ = require('underscore'), usb = require('usb');
+  var DCDriver = {};
 
   usb.setDebugLevel(4);
 
@@ -25,9 +26,11 @@
     }
   };
 
+  DCDriver.DEVICE_CONSTANTS = DEVICE;
+  DCDriver.setDebugLevel = usb.setDebugLevel;
+
 
   var launcher = usb.findByIds(DEVICE.ID.VENDOR, DEVICE.ID.PRODUCT);
-  var controller = {};
 
   if (!launcher) {
     throw 'Launcher not found - make sure your Thunder Missile Launcher is plugged in to a USB port';
@@ -54,7 +57,7 @@
     launcher.controlTransfer(0x21, 0x09, 0x0, 0x0, new Buffer([0x02, cmd, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]),
         function (data) {
           if (__.isNumber(duration)) {
-            __.delay(__.isFunction(callback) ? callback : function(){ controller.stop() }, duration);
+            __.delay(__.isFunction(callback) ? callback : function(){ DCDriver.stop() }, duration);
           }
         }
     );
@@ -67,53 +70,53 @@
   }
 
 
-  controller.up = controller.u = function (duration, callback) {
+  DCDriver.up = function (duration, callback) {
     signal(DEVICE.CMD.UP, duration, callback);
   };
 
-  controller.down = controller.d = function (duration, callback) {
+  DCDriver.down = function (duration, callback) {
     signal(DEVICE.CMD.DOWN, duration, callback);
   };
 
-  controller.left = controller.l = function (duration, callback) {
+  DCDriver.left = function (duration, callback) {
     signal(DEVICE.CMD.LEFT, duration, callback);
   };
 
-  controller.right = controller.r = function (duration, callback) {
+  DCDriver.right = function (duration, callback) {
     signal(DEVICE.CMD.RIGHT, duration, callback);
   };
 
-  controller.stop = controller.s = function (callback) {
-    if (__.isFunction(callback) && callback !== controller.stop) {
+  DCDriver.stop = function (callback) {
+    if (__.isFunction(callback) && callback !== DCDriver.stop) {
       signal(DEVICE.CMD.STOP, 0, callback);
     } else {
       signal(DEVICE.CMD.STOP);
     }
   };
 
-  controller.fire = controller.f = function (number, callback) {
+  DCDriver.fire = function (number, callback) {
     number = __.isNumber(number) && number >= 0 && number <= DEVICE.MISSILES.NUMBER ? number : 1;
     if (number === 0) {
-      controller.stop(callback);
+      DCDriver.stop(callback);
     } else {
-      signal(DEVICE.CMD.FIRE, DEVICE.MISSILES.RELOAD_DELAY_MS, trigger(controller.fire, number - 1, callback));
+      signal(DEVICE.CMD.FIRE, DEVICE.MISSILES.RELOAD_DELAY_MS, trigger(DCDriver.fire, number - 1, callback));
     }
   };
 
-  controller.park = controller.p = function (callback) {
-    controller.execute(DEVICE.CMD.RESET, callback);
+  DCDriver.park = function (callback) {
+    DCDriver.execute(DEVICE.CMD.RESET, callback);
   };
 
-  controller.execute = function (commands, callback) {
+  DCDriver.execute = function (commands, callback) {
     if (__.isString(commands)) {
-      controller.execute(commands.split(','), callback);
+      DCDriver.execute(commands.split(','), callback);
     } else if (commands.length === 0) {
-      controller.stop(callback);
+      DCDriver.stop(callback);
     } else {
-      var command = commands.shift(), func = command.length > 0 ? controller[command[0]] : null;
+      var command = commands.shift(), func = command.length > 0 ? DCDriver[command[0]] : null;
       if (__.isFunction(func)) {
-        var next = trigger(controller.execute, commands, callback);
-        if (func === controller.park || func === controller.stop) {
+        var next = trigger(DCDriver.execute, commands, callback);
+        if (func === DCDriver.park || func === DCDriver.stop) {
           func(next);
         } else {
           var number;
@@ -126,9 +129,9 @@
         }
       } else {
         console.warn('Ignoring bad command: ' + command);
-        controller.execute(commands, callback);
+        DCDriver.execute(commands, callback);
       }
     }
   };
 
-module.exports = controller;
+module.exports = DCDriver;
