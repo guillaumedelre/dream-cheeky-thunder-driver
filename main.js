@@ -92,7 +92,18 @@
     } else if (commands.length === 0) {
       DCDriver.stop(callback);
     } else {
-      var command = commands.shift(), func = command.length > 0 ? DCDriver[command[0]] : null;
+      //FIXME: isolate function name resolving logic into module for better organization
+      var shorthandTranslationMap = {
+        "u": "moveUp",
+        "d": "moveDown",
+        "l": "moveLeft",
+        "r": "moveRight",
+        "s": "stop",
+        "f": "fire",
+        "p": "park"
+      };
+      var command = commands.shift();
+      var func = command.length > 0 ? DCDriver[shorthandTranslationMap[command[0]]] : null;
       if (__.isFunction(func)) {
         var next = trigger(DCDriver.execute, commands, callback);
         if (func === DCDriver.park || func === DCDriver.stop) {
