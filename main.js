@@ -83,7 +83,7 @@ DCDriver.fire = function (number, callback) {
 };
 
 DCDriver.park = function (callback) {
-  DCDriver.execute(DCDriver.DEVICE_CONSTANTS.CMD.RESET, callback);
+  DCDriver.execute('l8000,d2000', callback);
 };
 
 DCDriver.execute = function (commands, callback) {

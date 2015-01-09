@@ -9,8 +9,7 @@ module.exports = {
     LEFT : 0x04,
     RIGHT: 0x08,
     FIRE : 0x10,
-    STOP : 0x20,
-    RESET: 'l8000,d2000'
+    STOP : 0x20
   },
   MISSILES: {
     NUMBER         : 4,
