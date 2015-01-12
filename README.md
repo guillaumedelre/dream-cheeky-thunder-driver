@@ -27,6 +27,11 @@ A JS object containing constants for Dream Cheeky Thunder Launcher.
 
 Turn on debug mode (level 4) of USB.
 
+####DCDriver.turnOffDebugMode()
+**Description:** 
+
+Turn off USB debug mode (ie. debug level 0).
+
 ####DCDriver.moveUp(`durationMS`[, `callback`])
 **Description:**
 
