@@ -8,6 +8,10 @@ DCDriver.turnOnDebugMode = function(){
   usb.setDebugLevel(4);
 };
 
+DCDriver.turnOffDebugMode = function(){
+  usb.setDebugLevel(0);
+}
+
 
 var launcher = usb.findByIds(DCDriver.DEVICE_CONSTANTS.ID.VENDOR, DCDriver.DEVICE_CONSTANTS.ID.PRODUCT);
 
