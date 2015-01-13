@@ -19,8 +19,10 @@
     "Driver",
     "Dream",
     "Cheeky",
+    "USB",
     "Missile",
-    "Launcher"
+    "Launcher",
+    "Thunder"
   ],
   "author": "Jack Kwong",
   "license": "MIT"
