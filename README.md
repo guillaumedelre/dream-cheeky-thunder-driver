@@ -8,8 +8,8 @@ ____________________
 
 Installation
 ==============
-1. `npm install dream-cheeky-api`
-2. In your js file, add `var DCDriver = require('dream-cheeky-api');`
+1. `npm install dream-cheeky-driver`
+2. In your js file, add `var DCDriver = require('dream-cheeky-driver');`
 
 ____________________
 
