@@ -2,7 +2,7 @@ dream-cheeky-api
 ================
 
 Nodejs API for controller dream cheeky missile launcher.
-This is a rewrite of [pathikrit's *node-thunder-driver* library](https://github.com/pathikrit/node-thunder-driver),  mainly to make it work for modern nodejs environment.
+This is a <s>rewrite</s> reinforcement of [pathikrit's *node-thunder-driver* library](https://github.com/pathikrit/node-thunder-driver),  <s>mainly to make it work for modern nodejs environment</s> with some unexpected behaviours removed and extra features.
 
 ____________________
 
