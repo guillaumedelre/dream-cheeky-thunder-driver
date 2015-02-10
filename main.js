@@ -35,12 +35,11 @@ process.on('exit', function(){
   // console.log("Close usb");
 });
 
-// duration in ms
-function signal(cmd, duration, callback) {
+function signal(cmd, durationMS, callback) {
   launcher.controlTransfer(0x21, 0x09, 0x0, 0x0, new Buffer([0x02, cmd, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]),
       function (data) {
-        if (!__.isNumber(duration)) return;
-        if (duration <= 0) {
+        if (!__.isNumber(durationMS)) return;
+        if (durationMS <= 0) {
           if (__.isFunction(callback)) callback();
           return;
         }
@@ -48,7 +47,7 @@ function signal(cmd, duration, callback) {
         __.delay(function(){ 
           if(__.isFunction(callback)) callback();
           DCDriver.stop();
-        }, duration);
+        }, durationMS);
       }
   );
 }
@@ -60,20 +59,20 @@ function trigger(callback, p1, p2) {
 }
 
 
-DCDriver.moveUp = function (duration, callback) {
-  signal(DCDriver.DEVICE_CONSTANTS.CMD.UP, duration, callback);
+DCDriver.moveUp = function (durationMS, callback) {
+  signal(DCDriver.DEVICE_CONSTANTS.CMD.UP, durationMS, callback);
 };
 
-DCDriver.moveDown = function (duration, callback) {
-  signal(DCDriver.DEVICE_CONSTANTS.CMD.DOWN, duration, callback);
+DCDriver.moveDown = function (durationMS, callback) {
+  signal(DCDriver.DEVICE_CONSTANTS.CMD.DOWN, durationMS, callback);
 };
 
-DCDriver.moveLeft = function (duration, callback) {
-  signal(DCDriver.DEVICE_CONSTANTS.CMD.LEFT, duration, callback);
+DCDriver.moveLeft = function (durationMS, callback) {
+  signal(DCDriver.DEVICE_CONSTANTS.CMD.LEFT, durationMS, callback);
 };
 
-DCDriver.moveRight = function (duration, callback) {
-  signal(DCDriver.DEVICE_CONSTANTS.CMD.RIGHT, duration, callback);
+DCDriver.moveRight = function (durationMS, callback) {
+  signal(DCDriver.DEVICE_CONSTANTS.CMD.RIGHT, durationMS, callback);
 };
 
 DCDriver.stop = function (callback) {
