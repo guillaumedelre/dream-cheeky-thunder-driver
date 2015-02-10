@@ -39,9 +39,16 @@ process.on('exit', function(){
 function signal(cmd, duration, callback) {
   launcher.controlTransfer(0x21, 0x09, 0x0, 0x0, new Buffer([0x02, cmd, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]),
       function (data) {
-        if (__.isNumber(duration)) {
-          __.delay(__.isFunction(callback) ? callback : function(){ DCDriver.stop() }, duration);
+        if (!__.isNumber(duration)) return;
+        if (duration <= 0) {
+          if (__.isFunction(callback)) callback();
+          return;
         }
+
+        __.delay(function(){ 
+          if(__.isFunction(callback)) callback();
+          DCDriver.stop();
+        }, duration);
       }
   );
 }
