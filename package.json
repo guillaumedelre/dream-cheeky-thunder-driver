@@ -4,6 +4,7 @@
   "description": "Driver for Dream Cheeky Missile Launcher",
   "main": "main.js",
   "dependencies": {
+    "node-amd-require": "^0.2.2",
     "underscore": "^1.7.0",
     "usb": "^0.3.11"
   },

@@ -1,4 +1,6 @@
-module.exports = {
+define([], function(){
+  
+ return {
   ID: {
     VENDOR : 0x2123,
     PRODUCT: 0x1010
@@ -16,3 +18,5 @@ module.exports = {
     RELOAD_DELAY_MS: 4500
   }
  };
+
+});
