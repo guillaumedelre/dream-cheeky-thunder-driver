@@ -1,7 +1,10 @@
 'use strict';
-// modify default nodejs's require to allow requiring requireJS module directly
-require('node-amd-require')({
-    baseUrl: './scripts/',
+
+var requirejs = require('requirejs');
+
+requirejs.config({
+    baseUrl: __dirname + '/scripts',
+    nodeRequire: require
 });
 
-module.exports = require('dcDriver');
+module.exports = requirejs('dcDriver');
