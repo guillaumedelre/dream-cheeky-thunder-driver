@@ -1,4 +1,6 @@
 # Created by https://www.gitignore.io
+### PhpStorm ###
+.idea
 
 ### Meteor ###
 .meteor/local
