@@ -21,7 +21,7 @@ define(['underscore', 'launcherUSB', 'deviceConstants'], function(__, launcher, 
 
                 __.delay(function(){
                     if(__.isFunction(callback)) callback();
-                    signal(DEVICE_CONSTANTS.LED.DISABLED);
+                    led(DEVICE_CONSTANTS.LED.DISABLED);
                 }, durationMS);
             }
         );
