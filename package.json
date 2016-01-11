@@ -1,6 +1,6 @@
 {
   "name": "dream-cheeky-thunder-driver",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Driver for Dream Cheeky Missile Launcher",
   "main": "main.js",
   "dependencies": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guillaumedelre/dream-cheeky-api.git"
+    "url": "git+https://github.com/guillaumedelre/dream-cheeky-thunder-driver.git"
   },
   "keywords": [
     "Driver",
@@ -28,7 +28,7 @@
   "author": "Guillaume Delré",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/guillaumedelre/dream-cheeky-api/issues"
+    "url": "https://github.com/guillaumedelre/dream-cheeky-thunder-driver/issues"
   },
-  "homepage": "https://github.com/guillaumedelre/dream-cheeky-api#readme"
+  "homepage": "https://github.com/guillaumedelre/dream-cheeky-thunder-driver#readme"
 }
