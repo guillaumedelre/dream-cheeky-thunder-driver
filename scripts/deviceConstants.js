@@ -10,6 +10,7 @@ define([], function(){
       DISABLED: 0x00
   },
   CMD: {
+    LED  : 0x03,
     UP   : 0x02,
     DOWN : 0x01,
     LEFT : 0x04,
