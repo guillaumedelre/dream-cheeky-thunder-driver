@@ -1,6 +1,6 @@
 {
   "name": "dream-cheeky-thunder-driver",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Driver for Dream Cheeky Missile Launcher",
   "main": "main.js",
   "dependencies": {
