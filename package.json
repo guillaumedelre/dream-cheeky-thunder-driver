@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guillaumedelre/dream-cheeky-api.git"
+    "url": "git+https://github.com/guillaumedelre/dream-cheeky-api.git"
   },
   "keywords": [
     "Driver",
@@ -26,5 +26,9 @@
     "Thunder"
   ],
   "author": "Guillaume Delré",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guillaumedelre/dream-cheeky-api/issues"
+  },
+  "homepage": "https://github.com/guillaumedelre/dream-cheeky-api#readme"
 }
