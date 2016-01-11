@@ -8,8 +8,8 @@ ____________________
 
 Installation
 ==============
-1. `npm install dream-cheeky-thunder`
-2. In your js file, add `var DCDriver = require('dream-cheeky-hunder');`
+1. `npm install dream-cheeky-thunder-driver`
+2. In your js file, add `var DCDriver = require('dream-cheeky-thunder-driver');`
 
 ____________________
 
