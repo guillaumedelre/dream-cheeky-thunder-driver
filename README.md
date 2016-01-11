@@ -2,14 +2,14 @@ dream-cheeky-api
 ================
 
 Nodejs API for controller dream cheeky missile launcher.
-This is a reinforcement of [pathikrit's *node-thunder-driver* library](https://github.com/pathikrit/node-thunder-driver), with some unexpected behaviours removed and extra features.
+This is a reinforcement of [jackkwong's *dream-cheeky-api* library](https://github.com/jackkwong/dream-cheeky-api), which handle led.
 
 ____________________
 
 Installation
 ==============
-1. `npm install dream-cheeky-driver`
-2. In your js file, add `var DCDriver = require('dream-cheeky-driver');`
+1. `npm install dream-cheeky-thunder`
+2. In your js file, add `var DCDriver = require('dream-cheeky-hunder');`
 
 ____________________
 
@@ -148,3 +148,17 @@ Type: String
 Type: Function()
 
 A function to execute when the chain of commands is done.
+
+####DCDriver.led(`commands`[, `callback`])
+
+Activate the led on th device
+
+**Parameters:**
+
+#####`commands`
+Type: String
+
+#####`callback`
+Type: Function()
+
+A function to execute when done.
