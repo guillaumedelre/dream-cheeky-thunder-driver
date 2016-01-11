@@ -1,5 +1,6 @@
 define([], function() {
   return {
+    "o": "led",
     "u": "moveUp",
     "d": "moveDown",
     "l": "moveLeft",

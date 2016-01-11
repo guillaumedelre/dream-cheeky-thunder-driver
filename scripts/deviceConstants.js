@@ -5,6 +5,10 @@ define([], function(){
     VENDOR : 0x2123,
     PRODUCT: 0x1010
   },
+  LED: {
+      ENABLED: 0x01,
+      DISABLED: 0x00
+  },
   CMD: {
     UP   : 0x02,
     DOWN : 0x01,
