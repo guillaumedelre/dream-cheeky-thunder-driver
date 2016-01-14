@@ -10,8 +10,7 @@ define(['usb', 'signal', 'led', 'trigger', 'deviceConstants', 'shortHandTranslat
 
     DCDriver.turnOffDebugMode = function(){
         usb.setDebugLevel(0);
-    }
-
+    };
 
     DCDriver.moveUp = function (durationMS, callback) {
         signal(DEVICE_CONSTANTS.CMD.UP, durationMS, callback);
@@ -81,7 +80,7 @@ define(['usb', 'signal', 'led', 'trigger', 'deviceConstants', 'shortHandTranslat
                 DCDriver.execute(commands, callback);
             }
         }
-    }
+    };
 
     return DCDriver;
 });
