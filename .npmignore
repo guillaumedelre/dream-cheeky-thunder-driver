@@ -1,8 +1,16 @@
-### Node template
+# Created by https://www.gitignore.io
+### PhpStorm ###
+.idea
+
+### Meteor ###
+.meteor/local
+.meteor/meteorite
+
+
+### Node ###
 # Logs
 logs
 *.log
-npm-debug.log*
 
 # Runtime data
 pids
@@ -25,10 +33,11 @@ coverage
 build/Release
 
 # Dependency directory
-# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
 
-# PhpStorm
-.idea
+# Vim temp files
+*~
+*.swp
+*.swo
 
-# Created by .ignore support plugin (hsz.mobi)

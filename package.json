@@ -1,34 +1,83 @@
 {
-  "name": "dream-cheeky-thunder-driver",
-  "version": "0.0.3",
-  "description": "Driver for Dream Cheeky Missile Launcher",
-  "main": "main.js",
+  "_args": [
+    [
+      "dream-cheeky-thunder-driver@0.0.3",
+      "/home/guillaume/dev/sources/local/dream-cheeky-thunder"
+    ]
+  ],
+  "_from": "dream-cheeky-thunder-driver@0.0.3",
+  "_id": "dream-cheeky-thunder-driver@0.0.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/dream-cheeky-thunder-driver",
+  "_nodeVersion": "5.4.0",
+  "_npmUser": {
+    "email": "delre.guillaume@gmail.com",
+    "name": "guillaumedelre"
+  },
+  "_npmVersion": "3.3.12",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "dream-cheeky-thunder-driver",
+    "raw": "dream-cheeky-thunder-driver@0.0.3",
+    "rawSpec": "0.0.3",
+    "scope": null,
+    "spec": "0.0.3",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_shasum": "435e63d205fc1a7b62c7607eeba650db7549f52b",
+  "_shrinkwrap": null,
+  "_spec": "dream-cheeky-thunder-driver@0.0.3",
+  "_where": "/home/guillaume/dev/sources/local/dream-cheeky-thunder",
+  "author": {
+    "name": "Guillaume Delré"
+  },
+  "bugs": {
+    "url": "https://github.com/guillaumedelre/dream-cheeky-thunder-driver/issues"
+  },
   "dependencies": {
     "requirejs": "^2.1.16",
     "underscore": "^1.7.0",
     "usb": "^1.0.4"
   },
+  "description": "Driver for Dream Cheeky Missile Launcher",
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "directories": {},
+  "dist": {
+    "shasum": "435e63d205fc1a7b62c7607eeba650db7549f52b",
+    "tarball": "http://registry.npmjs.org/dream-cheeky-thunder-driver/-/dream-cheeky-thunder-driver-0.0.3.tgz"
   },
+  "gitHead": "e1f4f21371bde4908e3709e20791d4638b098c1a",
+  "homepage": "https://github.com/guillaumedelre/dream-cheeky-thunder-driver#readme",
+  "keywords": [
+    "Cheeky",
+    "Dream",
+    "Driver",
+    "Launcher",
+    "Missile",
+    "Thunder",
+    "USB"
+  ],
+  "license": "MIT",
+  "main": "main.js",
+  "maintainers": [
+    {
+      "name": "guillaumedelre",
+      "email": "delre.guillaume@gmail.com"
+    }
+  ],
+  "name": "dream-cheeky-thunder-driver",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/guillaumedelre/dream-cheeky-thunder-driver.git"
   },
-  "keywords": [
-    "Driver",
-    "Dream",
-    "Cheeky",
-    "USB",
-    "Missile",
-    "Launcher",
-    "Thunder"
-  ],
-  "author": "Guillaume Delré",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/guillaumedelre/dream-cheeky-thunder-driver/issues"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/guillaumedelre/dream-cheeky-thunder-driver#readme"
+  "version": "0.0.3"
 }

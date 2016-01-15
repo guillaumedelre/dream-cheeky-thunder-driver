@@ -1,5 +1,5 @@
-dream-cheeky-thunder-driver
-===========================
+dream-cheeky-api
+================
 
 Nodejs API for controller dream cheeky missile launcher.
 This is a reinforcement of [jackkwong's *dream-cheeky-api* library](https://github.com/jackkwong/dream-cheeky-api), which handle led.
